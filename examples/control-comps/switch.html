@@ -140,8 +140,8 @@
         },
         {
           title: {
-            cn: '[属性] width: switch 的宽度（像素）。 默认值: 40',
-            en: '[ATTR] width: switch\'s width（pixel）. Default is 40'
+            cn: '[属性] width: switch 的尺寸。 默认值: -',
+            en: '[ATTR] width: switch\'s size. Default is -'
           },
           schema: {
             type: 'object',
@@ -151,7 +151,7 @@
                 ui: {
                   widget: 'switch',
                   widgetConfig: {
-                    width: 80
+                    size: 'small'
                   }
                 }
               }
@@ -171,8 +171,8 @@
                 ui: {
                   widget: 'switch',
                   widgetConfig: {
-                    activeIconClass: 'el-icon-unlock',
-                    inactiveIconClass: 'el-icon-lock'
+                    activeIconClass: 'md-checkmark',
+                    inactiveIconClass: 'md-close'
                   }
                 }
               }

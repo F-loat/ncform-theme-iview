@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <title>ncform components document</title>
   <link rel="stylesheet" href="/examples/demo.css">
-  <link rel="stylesheet" href="../node_modules/view-design/dist/styles/iview.css">
+  <link rel="stylesheet" href="https://unpkg.com/view-design/dist/styles/iview.css" />
 
   <script type="text/javascript" src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/view-design/dist/iview.js"></script>
 
   <style>
     .doc {
@@ -37,47 +38,33 @@
       </a>
 
       ncform standard components
-
-      <div class="el-radio-group" style="float: right;">
-        <label class="el-radio-button">
-          <input type="radio" class="el-radio-button__orig-radio" value="en" v-model="lang">
-          <span class="el-radio-button__inner">English</span>
-        </label>
-        <label class="el-radio-button" value="cn">
-          <input type="radio" class="el-radio-button__orig-radio" value="cn" v-model="lang">
-          <span class="el-radio-button__inner">中文</span>
-        </label>
-      </div>
+      <radio-group v-model="lang" style="position: absolute; top: 12px; right: 12px;">
+        <radio label="en">English</radio>
+        <radio label="cn">中文</radio>
+      </radio-group>
 
     </h2>
 
-    <div style="display: flex; height: calc(100vh - 86px); overflow: hidden;" v-cloak>
-      <div style="flex:1; overflow: auto">
-        <ul class="el-menu el-menu-vertical-demo">
-          <li class="el-submenu is-opened">
-            <div class="el-submenu__title" style="padding-left: 20px;"><i
-                class="el-icon-star-on"></i><span>Controls</span></div>
-            <ul class="el-menu">
-              <li v-for="item in displayControls" class="el-menu-item" :class="{'is-active': currentUrl === item.url}"
-                @click="goto(item.url)">
-                {{item.name}}
-              </li>
-              <!-- Don't touch me - controls -->
-            </ul>
-          </li>
-          <li class="el-submenu is-opened">
-            <div class="el-submenu__title" style="padding-left: 20px;"><i
-                class="el-icon-star-on"></i><span>Layouts</span>
-            </div>
-            <ul class="el-menu">
-              <li v-for="item in displayLayouts" class="el-menu-item" :class="{'is-active': currentUrl === item.url}"
-                @click="goto(item.url)">
-                {{item.name}}
-              </li>
-              <!-- Don't touch me - layouts -->
-            </ul>
-          </li>
-        </ul>
+    <div style="display: flex; height: calc(100vh - 40px); padding-top: 16px;" v-cloak>
+      <div style="overflow: auto; overflow-x: hidden;">
+        <i-menu :active-name="currentUrl" @on-select="goto" style="height: 100%;">
+          <menu-group title="Controls">
+            <menu-item
+              v-for="item in displayControls"
+              :name="item.url"
+            >
+              {{item.name}}
+            </menu-item>
+          </menu-group>
+          <menu-group title="Layouts">
+            <menu-item
+              v-for="item in displayLayouts"
+              :name="item.url"
+            >
+              {{item.name}}
+            </menu-item>
+          </menu-group>
+        </i-menu>
       </div>
       <div style="flex:5">
         <iframe :src="currentUrl" style="width: 100%; border: none; height: 100%"></iframe>
