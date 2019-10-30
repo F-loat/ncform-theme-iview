@@ -9,8 +9,8 @@
     :false-color="mergeConfig.inactiveColor"
     v-show="!hidden"
   >
-    <Icon :type="mergeConfig.activeIconClass" slot="open" />
-    <Icon :type="mergeConfig.inactiveIconClass" slot="close" />
+    <Icon v-if="mergeConfig.activeIconClass" :type="mergeConfig.activeIconClass" slot="open" />
+    <Icon v-if="mergeConfig.inactiveIconClass" :type="mergeConfig.inactiveIconClass" slot="close" />
     <template slot="open">{{mergeConfig.activeText}}</template>
     <template slot="close">{{mergeConfig.inactiveText}}</template>
   </i-switch>

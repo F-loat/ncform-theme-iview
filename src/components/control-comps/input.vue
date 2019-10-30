@@ -11,8 +11,8 @@
       :type="mergeConfig.type === 'file' ? 'text' : mergeConfig.type"
       v-model="inputVal"
     >
-      <Icon :type="mergeConfig.prefixIcon" slot="prefix" />
-      <Icon :type="mergeConfig.suffixIcon" slot="suffix" />
+      <Icon v-if="mergeConfig.prefixIcon" :type="mergeConfig.prefixIcon" slot="prefix" />
+      <Icon v-if="mergeConfig.suffixIcon" :type="mergeConfig.suffixIcon" slot="suffix" />
       <template v-if="mergeConfig.type !== 'file' && mergeConfig.compound">
         <template
           slot="prepend"
@@ -96,8 +96,8 @@
       :value-key="mergeConfig.autocomplete.itemValueField || 'value'"
       v-model="inputVal"
     >
-      <Icon :type="mergeConfig.prefixIcon" slot="prefix" />
-      <Icon :type="mergeConfig.suffixIcon" slot="suffix" />
+      <Icon v-if="mergeConfig.prefixIcon" :type="mergeConfig.prefixIcon" slot="prefix" />
+      <Icon v-if="mergeConfig.suffixIcon" :type="mergeConfig.suffixIcon" slot="suffix" />
       <template
         slot-scope="props"
         v-if="mergeConfig.autocomplete && mergeConfig.autocomplete.itemTemplate"
