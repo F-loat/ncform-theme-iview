@@ -64,8 +64,8 @@ function serve() {
     delete require.cache[require.resolve("./mock/data")];
     const mockConfig = require("./mock/data");
     browserSync.init({
-      server: ".",
-      index: "examples/index.html",
+      server: "./examples",
+      index: "index.html",
       port: 3002,
       logLevel: "debug",
       logPrefix: "VC",
