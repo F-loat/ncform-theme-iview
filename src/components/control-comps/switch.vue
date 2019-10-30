@@ -2,19 +2,30 @@
   <i-switch
     v-model="modelVal"
     :disabled="disabled || readonly"
-    :size="mergeConfig.width"
+    :size="mergeConfig.size"
     :true-value="mergeConfig.activeValue"
     :false-value="mergeConfig.inactiveValue"
     :true-color="mergeConfig.activeColor"
     :false-color="mergeConfig.inactiveColor"
     v-show="!hidden"
   >
+    <Icon :type="mergeConfig.activeIconClass" slot="open" />
+    <Icon :type="mergeConfig.inactiveIconClass" slot="close" />
     <template slot="open">{{mergeConfig.activeText}}</template>
     <template slot="close">{{mergeConfig.inactiveText}}</template>
   </i-switch>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.__ncform-control {
+  width: 44px;
+  &.ivu-switch-small {
+    width: 28px;
+  }
+  &.ivu-switch-large {
+    width: 56px;
+  }
+}
 </style>
 
 <script>

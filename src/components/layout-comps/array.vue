@@ -75,6 +75,8 @@
 
     </div>
 
+    <br v-if="!schema.value.length" />
+
     <!-- 列表控制按钮 -->
     <ButtonGroup v-show="!collapsed" class="ivu-button-group" v-if="!mergeConfig.disableAdd || !mergeConfig.disableDel">
       <Button
@@ -123,7 +125,7 @@
 
     .list-item {
       // border: 1px solid #d8dce5;
-      margin: 0px 0px 8px;
+      margin: 8px 0px;
       .list-item-label {
         padding: 8px 8px 4px 8px;
         label {
